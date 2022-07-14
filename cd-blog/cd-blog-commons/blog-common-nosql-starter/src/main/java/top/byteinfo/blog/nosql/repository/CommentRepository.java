@@ -6,4 +6,5 @@ import top.byteinfo.blog.mbg.entity.Comment;
 
 @Component
 public interface CommentRepository extends CrudRepository<Comment, Long> {
+
 }

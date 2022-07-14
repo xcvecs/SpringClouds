@@ -44,15 +44,14 @@ public class WebSocketServiceImpl {
         webSocketSet.add(this);
 
 
-        synchronized (session) {
-            session.getBasicRemote().sendText("加入连接");
-        }
+
     }
 
     @OnClose
     public void onClose() throws IOException {
         // 更新在线人数
         webSocketSet.remove(this);
+
         broadcastMessage("messageDTO");
     }
 

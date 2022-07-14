@@ -3,13 +3,13 @@ package top.byteinfo.blog.websocket.handler;
 import org.apache.tomcat.websocket.WsSession;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
-import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.adapter.AbstractWebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import javax.websocket.Session;
 import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -20,12 +20,11 @@ import java.util.concurrent.LinkedBlockingDeque;
  * 聊天记录
  * 在线人数
  * 撤回消息
- *
  */
 
 public class WSHandler extends TextWebSocketHandler {
 
-    private final static List<WebSocketSession> sessionList = new ArrayList<>();
+    private static  List<WebSocketSession> sessionList = new ArrayList<>();
 
     LinkedBlockingDeque<TextMessage> messageArrayDeque = new LinkedBlockingDeque<>();
 
@@ -33,13 +32,6 @@ public class WSHandler extends TextWebSocketHandler {
     private static boolean ws;
 
     private static ExecutorService bootstrap = Executors.newSingleThreadExecutor();
-
-    @Override
-
-    public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
-
-        super.handleMessage(session, message);
-    }
 
 
     @Override
@@ -54,8 +46,7 @@ public class WSHandler extends TextWebSocketHandler {
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-        if (sessionList.isEmpty())
-            bootstrap.submit(this::WsSocketServerHandler);
+        if (sessionList.isEmpty()) bootstrap.submit(this::webSocketServerHandler);
 
         sessionList.add(session);
         TextMessage textMessage = new TextMessage("Established");
@@ -66,14 +57,8 @@ public class WSHandler extends TextWebSocketHandler {
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
         TextMessage textMessage = new TextMessage("ConnectionClosed");
-        messageConsumer(textMessage);
+        messageArrayDeque.push(textMessage);
 
-        boolean remove = sessionList.remove(session);
-        while (sessionList.isEmpty()) {
-            if (messageArrayDeque.isEmpty())
-                ws = false;
-            else messageDequeHandler(messageArrayDeque.pop());
-        }
 
     }
 
@@ -82,31 +67,38 @@ public class WSHandler extends TextWebSocketHandler {
         return super.supportsPartialMessages();
     }
 
+    public void messageConsumer(TextMessage message) {
+        messageArrayDeque.push(message);
 
-    public void WsSocketServerHandler() {
+
+    }
+
+    public void webSocketServerHandler() {
         int count = 0;
         ws = true;
         while (ws) {
 
-            if (!messageArrayDeque.isEmpty())
-            {
-                messageDequeHandler(messageArrayDeque.pop());
+            if (!messageArrayDeque.isEmpty()) {
+                TextMessage pop = messageArrayDeque.pop();
+                messageLocalServerHandler(pop);
+                messageMqHandler(pop);
+
             }
 
         }
     }
 
-    public void messageDequeHandler(TextMessage message) {
+    public void messageLocalServerHandler(TextMessage message) {
 
         for (WebSocketSession webSocketSession : sessionList) {
-            if (webSocketSession == null)
-                break;
+            if (webSocketSession == null) break;
+
             AbstractWebSocketSession<Session> abstractWebSocketSession = (AbstractWebSocketSession<Session>) webSocketSession;
             Session nativeSession = abstractWebSocketSession.getNativeSession();
-
             WsSession wsSession = (WsSession) nativeSession;
-//            wsSession.getBasicRemote().sendObject();
             try {
+                wsSession.getBasicRemote().sendBinary(ByteBuffer.wrap(" ".getBytes()));
+
                 nativeSession.getBasicRemote().sendText(String.valueOf(message));
             } catch (IOException e) {
                 System.out.println("error");
@@ -115,8 +107,14 @@ public class WSHandler extends TextWebSocketHandler {
         }
     }
 
-    public void messageConsumer(TextMessage message){
-        messageArrayDeque.push(message);
+    public void messageMqHandler(TextMessage message) {
+
 
     }
+
+
 }
+
+
+
+
