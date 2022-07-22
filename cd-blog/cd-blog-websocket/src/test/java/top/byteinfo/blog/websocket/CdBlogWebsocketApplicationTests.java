@@ -1,12 +1,12 @@
 package top.byteinfo.blog.websocket;
 
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Random;
+import java.io.File;
+import java.io.InputStream;
+import java.util.*;
 
 @SpringBootTest
 class CdBlogWebsocketApplicationTests {
@@ -41,6 +41,29 @@ class CdBlogWebsocketApplicationTests {
 
         arrayDeque.add(11);
 
+
+    }
+
+    @SneakyThrows
+    @Test
+    void Test(){
+        System.out.println();
+
+        File executable = new File("C:\\Users\\iec\\Desktop\\run.exe\\run\\run.exe");
+        List<String> commands = new ArrayList<>();
+        commands.add("cmd.exe");
+        commands.add("/c");
+        commands.add("run.exe");
+
+        ProcessBuilder pb = new ProcessBuilder(commands);
+        pb.directory(new File("C:\\Intel\\run"));
+        Process process = pb.start();
+        InputStream inputStream = process.getInputStream();
+        byte[] bytes = new byte[128];
+        int read = inputStream.read(bytes);
+        String s = new String(bytes);
+
+        pb.directory(executable.getParentFile());
 
     }
 

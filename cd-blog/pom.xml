@@ -17,6 +17,7 @@
         <module>cd-blog-gateway</module>
         <module>cd-blog-file</module>
         <module>cd-blog-search</module>
+        <module>cd-blog-mq</module>
     </modules>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>

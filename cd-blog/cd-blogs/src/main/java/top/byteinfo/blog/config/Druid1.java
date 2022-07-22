@@ -20,7 +20,6 @@ public class Druid1 {
     @Primary
     @Bean(name = "druid1SqlSessionFactory")
     public SqlSessionFactory sqlSessionFactory(@Qualifier("Druid1") DataSource dataSource) throws Exception {
-
         SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource);
         sessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/druid1/*.xml"));

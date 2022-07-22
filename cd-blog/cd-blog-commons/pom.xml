@@ -13,6 +13,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <artifactId>cd-blog-commons</artifactId>
+    <groupId>top.byteinfo</groupId>
     <version>0.0.1-SNAPSHOT</version>
     <name>cd-blog-commons</name>
     <description>cd-blog-commons</description>
