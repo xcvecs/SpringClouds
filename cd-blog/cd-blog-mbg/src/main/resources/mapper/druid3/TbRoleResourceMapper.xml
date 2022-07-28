@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.byteinfo.blog.mbg.mapper.TbRoleResourceMapper">
-  <resultMap id="BaseResultMap" type="top.byteinfo.blog.mbg.entity.TbRoleResource">
+<mapper namespace="top.byteinfo.x.blog.mbg.mapper.TbRoleResourceMapper">
+  <resultMap id="BaseResultMap" type="top.byteinfo.x.blog.mbg.entity.TbRoleResource">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="role_id" jdbcType="INTEGER" property="roleId" />
     <result column="resource_id" jdbcType="INTEGER" property="resourceId" />
@@ -10,13 +10,13 @@
     delete from tb_role_resource
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="top.byteinfo.blog.mbg.entity.TbRoleResource">
+  <insert id="insert" parameterType="top.byteinfo.x.blog.mbg.entity.TbRoleResource">
     insert into tb_role_resource (id, role_id, resource_id
       )
     values (#{id,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}, #{resourceId,jdbcType=INTEGER}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="top.byteinfo.blog.mbg.entity.TbRoleResource">
+  <update id="updateByPrimaryKey" parameterType="top.byteinfo.x.blog.mbg.entity.TbRoleResource">
     update tb_role_resource
     set role_id = #{roleId,jdbcType=INTEGER},
       resource_id = #{resourceId,jdbcType=INTEGER}

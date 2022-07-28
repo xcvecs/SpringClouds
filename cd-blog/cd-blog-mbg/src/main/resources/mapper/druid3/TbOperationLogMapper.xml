@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.byteinfo.blog.mbg.mapper.TbOperationLogMapper">
-  <resultMap id="BaseResultMap" type="top.byteinfo.blog.mbg.entity.TbOperationLog">
+<mapper namespace="top.byteinfo.x.blog.mbg.mapper.TbOperationLogMapper">
+  <resultMap id="BaseResultMap" type="top.byteinfo.x.blog.mbg.entity.TbOperationLog">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="opt_module" jdbcType="VARCHAR" property="optModule" />
     <result column="opt_type" jdbcType="VARCHAR" property="optType" />
@@ -22,7 +22,7 @@
     delete from tb_operation_log
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="top.byteinfo.blog.mbg.entity.TbOperationLog">
+  <insert id="insert" parameterType="top.byteinfo.x.blog.mbg.entity.TbOperationLog">
     insert into tb_operation_log (id, opt_module, opt_type, 
       opt_url, opt_method, opt_desc, 
       request_method, user_id, nickname, 
@@ -36,7 +36,7 @@
       #{updateTime,jdbcType=TIMESTAMP}, #{requestParam,jdbcType=LONGVARCHAR}, #{responseData,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="top.byteinfo.blog.mbg.entity.TbOperationLog">
+  <update id="updateByPrimaryKey" parameterType="top.byteinfo.x.blog.mbg.entity.TbOperationLog">
     update tb_operation_log
     set opt_module = #{optModule,jdbcType=VARCHAR},
       opt_type = #{optType,jdbcType=VARCHAR},

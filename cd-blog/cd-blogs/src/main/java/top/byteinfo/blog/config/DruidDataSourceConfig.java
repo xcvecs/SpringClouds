@@ -1,5 +1,6 @@
 package top.byteinfo.blog.config;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +15,11 @@ public class DruidDataSourceConfig {
     @Bean(name = "Druid1")
     @ConfigurationProperties("spring.datasource.druid.druid1")
     public DataSource first() {
-        return DruidDataSourceBuilder.create().build();
+        DruidDataSourceBuilder druidDataSourceBuilder = DruidDataSourceBuilder.create();
+
+        DruidDataSource druidDataSource = druidDataSourceBuilder.build();
+        System.out.println();
+        return druidDataSource;
     }
 
     @Bean(name = "Druid2")

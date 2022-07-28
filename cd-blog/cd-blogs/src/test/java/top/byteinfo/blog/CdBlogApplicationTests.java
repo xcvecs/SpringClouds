@@ -2,16 +2,18 @@ package top.byteinfo.blog;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import top.byteinfo.blog.common.core.util.Jackson;
-import top.byteinfo.blog.mbg.entity.Article;
-import top.byteinfo.blog.mbg.entity.ArticleTag;
-import top.byteinfo.blog.mbg.entity.Tag;
+import top.byteinfo.blog.config.Configs;
 import top.byteinfo.blog.dao.druid1.ArticleDao;
 import top.byteinfo.blog.dao.druid1.ArticleTagDao;
 import top.byteinfo.blog.dao.druid1.TagDao;
 import top.byteinfo.blog.dao.druid3.TBArticleDao;
+import top.byteinfo.blog.mbg.entity.Article;
+import top.byteinfo.blog.mbg.entity.ArticleTag;
+import top.byteinfo.blog.mbg.entity.Tag;
 import top.byteinfo.blog.model.vo.ArticleVO;
 import top.byteinfo.blog.model.vo.TagVO;
 import top.byteinfo.blog.util.BeanUtils;
@@ -40,11 +42,15 @@ class CdBlogApplicationTests {
     @Resource
     TBlogMapper tBlogMapper;
 
+    @Autowired
+    Configs.OssConfig ossConfig;
+
     @Test
     void contextLoads() {
         String admin = new BCryptPasswordEncoder().encode("admin");
         log.info(admin);
 
+        String bucketName = ossConfig.getBucketName();
 //        blogMapper.selectAll();
 //        String[] ss = {"s", "ss"};
 //

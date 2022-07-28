@@ -18,6 +18,7 @@
         <module>cd-commons</module>
         <module>cd-gateway</module>
         <module>cd-auth</module>
+        <module>cd-specification</module>
         <!--        <module>cd-blog</module>-->
     </modules>
     <properties>

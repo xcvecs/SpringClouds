@@ -9,7 +9,7 @@
         <groupId>top.byteinfo</groupId>
         <artifactId>cd-blog</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+<!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
     </parent>
     <artifactId>cd-blog-mbg</artifactId>
     <name>cd-blog-mbg</name>
@@ -36,11 +36,11 @@
             <artifactId>mybatis-generator-lombok-plugin</artifactId>
             <version>1.0</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.example</groupId>-->
-<!--            <artifactId>demo</artifactId>-->
-<!--            <version>1.0</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.example</groupId>-->
+        <!--            <artifactId>demo</artifactId>-->
+        <!--            <version>1.0</version>-->
+        <!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -66,7 +66,7 @@
                 <version>1.4.0</version>
                 <configuration>
                     <!-- mybatis-generator的配置文件，根据情况调整位置 -->
-                    <configurationFile>src/test/java/top/byteinfo/blog/mbg/generator-m.xml</configurationFile>
+                    <configurationFile>src/test/java/top/byteinfo/blog/mbg/generator-x.xml</configurationFile>
                     <verbose>true</verbose>
                     <overwrite>true</overwrite>
                 </configuration>
@@ -90,11 +90,11 @@
                     <!--                        <artifactId>mybatis-generator-core</artifactId>-->
                     <!--                        <version>1.4.0</version>-->
                     <!--                    </dependency>-->
-<!--                    <dependency>-->
-<!--                        <groupId>com.example</groupId>-->
-<!--                        <artifactId>demo</artifactId>-->
-<!--                        <version>1.0</version>-->
-<!--                    </dependency>-->
+                    <!--                    <dependency>-->
+                    <!--                        <groupId>com.example</groupId>-->
+                    <!--                        <artifactId>demo</artifactId>-->
+                    <!--                        <version>1.0</version>-->
+                    <!--                    </dependency>-->
                     <dependency>
                         <groupId>com.softwareloop</groupId>
                         <artifactId>mybatis-generator-lombok-plugin</artifactId>

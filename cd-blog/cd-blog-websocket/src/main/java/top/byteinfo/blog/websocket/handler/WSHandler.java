@@ -88,6 +88,10 @@ public class WSHandler extends TextWebSocketHandler {
         }
     }
 
+    /**
+     * handler message
+     * @param message
+     */
     public void messageLocalServerHandler(TextMessage message) {
 
         for (WebSocketSession webSocketSession : sessionList) {
@@ -107,6 +111,10 @@ public class WSHandler extends TextWebSocketHandler {
         }
     }
 
+    /**
+     * handler message
+     * @param message
+     */
     public void messageMqHandler(TextMessage message) {
 
 

@@ -14,7 +14,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = {"top.byteinfo.blog.dao.druid1","top.byteinfo.blog.mbg.mapper"}, sqlSessionTemplateRef = "druid1SqlSessionTemplate")
+@MapperScan(basePackages = {"top.byteinfo.blog.dao.druid1", "top.byteinfo.blog.mbg.mapper"}, sqlSessionTemplateRef = "druid1SqlSessionTemplate")
 public class Druid1 {
 
     @Primary

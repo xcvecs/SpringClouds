@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.byteinfo.blog.mbg.mapper.TbUniqueViewMapper">
-  <resultMap id="BaseResultMap" type="top.byteinfo.blog.mbg.entity.TbUniqueView">
+<mapper namespace="top.byteinfo.x.blog.mbg.mapper.TbUniqueViewMapper">
+  <resultMap id="BaseResultMap" type="top.byteinfo.x.blog.mbg.entity.TbUniqueView">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="views_count" jdbcType="INTEGER" property="viewsCount" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -11,13 +11,13 @@
     delete from tb_unique_view
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="top.byteinfo.blog.mbg.entity.TbUniqueView">
+  <insert id="insert" parameterType="top.byteinfo.x.blog.mbg.entity.TbUniqueView">
     insert into tb_unique_view (id, views_count, create_time, 
       update_time)
     values (#{id,jdbcType=INTEGER}, #{viewsCount,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="top.byteinfo.blog.mbg.entity.TbUniqueView">
+  <update id="updateByPrimaryKey" parameterType="top.byteinfo.x.blog.mbg.entity.TbUniqueView">
     update tb_unique_view
     set views_count = #{viewsCount,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},

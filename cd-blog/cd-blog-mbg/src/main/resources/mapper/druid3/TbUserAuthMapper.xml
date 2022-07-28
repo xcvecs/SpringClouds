@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.byteinfo.blog.mbg.mapper.TbUserAuthMapper">
-  <resultMap id="BaseResultMap" type="top.byteinfo.blog.mbg.entity.TbUserAuth">
+<mapper namespace="top.byteinfo.x.blog.mbg.mapper.TbUserAuthMapper">
+  <resultMap id="BaseResultMap" type="top.byteinfo.x.blog.mbg.entity.TbUserAuth">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_info_id" jdbcType="INTEGER" property="userInfoId" />
     <result column="username" jdbcType="VARCHAR" property="username" />
@@ -17,7 +17,7 @@
     delete from tb_user_auth
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="top.byteinfo.blog.mbg.entity.TbUserAuth">
+  <insert id="insert" parameterType="top.byteinfo.x.blog.mbg.entity.TbUserAuth">
     insert into tb_user_auth (id, user_info_id, username, 
       `password`, login_type, ip_address, 
       ip_source, create_time, update_time, 
@@ -27,7 +27,7 @@
       #{ipSource,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{lastLoginTime,jdbcType=TIMESTAMP})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="top.byteinfo.blog.mbg.entity.TbUserAuth">
+  <update id="updateByPrimaryKey" parameterType="top.byteinfo.x.blog.mbg.entity.TbUserAuth">
     update tb_user_auth
     set user_info_id = #{userInfoId,jdbcType=INTEGER},
       username = #{username,jdbcType=VARCHAR},

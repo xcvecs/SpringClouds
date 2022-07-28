@@ -136,7 +136,7 @@
 
     <!-- 按照每天生成常规日志文件 -->
     <appender name="Test" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>C:\Users\Administrator\IdeaProjects\SpringClouds\cd-blog\cd-blog-x\src\test\java\top\byteinfo\blog\x/${NAME}-debug.log.json</file>
+        <file>C:\Users\iec\IdeaProjects\SpringClouds\cd-blog\cd-blogs\src\test\java\top\byteinfo\blog\${NAME}-debug.log.json</file>
         <!-- 基于时间的分包策略 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${LOG_FILE_PATH}/${NAME}-debug.%d{yyyy-MM-dd}.%i.log</fileNamePattern>

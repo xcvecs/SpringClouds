@@ -17,6 +17,7 @@
 	<modules>
 		<module>cd-mvc</module>
 		<module>cd-Integration</module>
+		<module>cd-dataAccess</module>
 	</modules>
 	<properties>
 		<java.version>1.8</java.version>

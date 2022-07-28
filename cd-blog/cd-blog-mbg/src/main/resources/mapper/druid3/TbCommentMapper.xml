@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.byteinfo.blog.mbg.mapper.TbCommentMapper">
-  <resultMap id="BaseResultMap" type="top.byteinfo.blog.mbg.entity.TbComment">
+<mapper namespace="top.byteinfo.x.blog.mbg.mapper.TbCommentMapper">
+  <resultMap id="BaseResultMap" type="top.byteinfo.x.blog.mbg.entity.TbComment">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="topic_id" jdbcType="INTEGER" property="topicId" />
@@ -18,7 +18,7 @@
     delete from tb_comment
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="top.byteinfo.blog.mbg.entity.TbComment">
+  <insert id="insert" parameterType="top.byteinfo.x.blog.mbg.entity.TbComment">
     insert into tb_comment (id, user_id, topic_id, 
       reply_user_id, parent_id, `type`, 
       is_delete, is_review, create_time, 
@@ -28,7 +28,7 @@
       #{isDelete,jdbcType=TINYINT}, #{isReview,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{commentContent,jdbcType=LONGVARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="top.byteinfo.blog.mbg.entity.TbComment">
+  <update id="updateByPrimaryKey" parameterType="top.byteinfo.x.blog.mbg.entity.TbComment">
     update tb_comment
     set user_id = #{userId,jdbcType=INTEGER},
       topic_id = #{topicId,jdbcType=INTEGER},

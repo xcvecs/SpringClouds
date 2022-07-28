@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.byteinfo.blog.mbg.mapper.TbRoleMenuMapper">
-  <resultMap id="BaseResultMap" type="top.byteinfo.blog.mbg.entity.TbRoleMenu">
+<mapper namespace="top.byteinfo.x.blog.mbg.mapper.TbRoleMenuMapper">
+  <resultMap id="BaseResultMap" type="top.byteinfo.x.blog.mbg.entity.TbRoleMenu">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="role_id" jdbcType="INTEGER" property="roleId" />
     <result column="menu_id" jdbcType="INTEGER" property="menuId" />
@@ -10,13 +10,13 @@
     delete from tb_role_menu
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="top.byteinfo.blog.mbg.entity.TbRoleMenu">
+  <insert id="insert" parameterType="top.byteinfo.x.blog.mbg.entity.TbRoleMenu">
     insert into tb_role_menu (id, role_id, menu_id
       )
     values (#{id,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="top.byteinfo.blog.mbg.entity.TbRoleMenu">
+  <update id="updateByPrimaryKey" parameterType="top.byteinfo.x.blog.mbg.entity.TbRoleMenu">
     update tb_role_menu
     set role_id = #{roleId,jdbcType=INTEGER},
       menu_id = #{menuId,jdbcType=INTEGER}

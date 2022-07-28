@@ -35,6 +35,8 @@
     <modules>
         <module>cd-boot</module>
         <module>cd-framework</module>
+        <module>cd-global</module>
+        <module>cd-blog</module>
     </modules>
 
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.byteinfo.blog.mbg.mapper.TbArticleMapper">
-  <resultMap id="BaseResultMap" type="top.byteinfo.blog.mbg.entity.TbArticle">
+<mapper namespace="top.byteinfo.x.blog.mbg.mapper.TbArticleMapper">
+  <resultMap id="BaseResultMap" type="top.byteinfo.x.blog.mbg.entity.TbArticle">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="category_id" jdbcType="INTEGER" property="categoryId" />
@@ -20,7 +20,7 @@
     delete from tb_article
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="top.byteinfo.blog.mbg.entity.TbArticle">
+  <insert id="insert" parameterType="top.byteinfo.x.blog.mbg.entity.TbArticle">
     insert into tb_article (id, user_id, category_id, 
       article_cover, article_title, `type`, 
       original_url, is_top, is_delete, 
@@ -32,7 +32,7 @@
       #{status,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{articleContent,jdbcType=LONGVARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="top.byteinfo.blog.mbg.entity.TbArticle">
+  <update id="updateByPrimaryKey" parameterType="top.byteinfo.x.blog.mbg.entity.TbArticle">
     update tb_article
     set user_id = #{userId,jdbcType=INTEGER},
       category_id = #{categoryId,jdbcType=INTEGER},

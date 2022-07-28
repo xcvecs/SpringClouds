@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.byteinfo.blog.mbg.mapper.TbMenuMapper">
-  <resultMap id="BaseResultMap" type="top.byteinfo.blog.mbg.entity.TbMenu">
+<mapper namespace="top.byteinfo.x.blog.mbg.mapper.TbMenuMapper">
+  <resultMap id="BaseResultMap" type="top.byteinfo.x.blog.mbg.entity.TbMenu">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="path" jdbcType="VARCHAR" property="path" />
@@ -17,7 +17,7 @@
     delete from tb_menu
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="top.byteinfo.blog.mbg.entity.TbMenu">
+  <insert id="insert" parameterType="top.byteinfo.x.blog.mbg.entity.TbMenu">
     insert into tb_menu (id, `name`, `path`, 
       component, icon, create_time, 
       update_time, order_num, parent_id, 
@@ -27,7 +27,7 @@
       #{updateTime,jdbcType=TIMESTAMP}, #{orderNum,jdbcType=BIT}, #{parentId,jdbcType=INTEGER}, 
       #{isHidden,jdbcType=BIT})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="top.byteinfo.blog.mbg.entity.TbMenu">
+  <update id="updateByPrimaryKey" parameterType="top.byteinfo.x.blog.mbg.entity.TbMenu">
     update tb_menu
     set `name` = #{name,jdbcType=VARCHAR},
       `path` = #{path,jdbcType=VARCHAR},

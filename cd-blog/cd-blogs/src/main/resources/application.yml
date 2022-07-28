@@ -6,8 +6,8 @@ spring:
   cloud:
     nacos:
       server-addr: 192.168.1.11:8848
-#  profiles:
-#    active: dev
+  #  profiles:
+  #    active: dev
   main:
     allow-bean-definition-overriding: true
 
@@ -101,6 +101,13 @@ mybatis:
 jwt:
   token-key: axilAShsdfjkgikasTDHJC
   aes-key: Axqwn234qt89sdhc
+
+int:
+  string:
+    nums: 1234
+    url: baidu.com
+    bucketName: aliyun.com
+
 
 cd:
   blog:
