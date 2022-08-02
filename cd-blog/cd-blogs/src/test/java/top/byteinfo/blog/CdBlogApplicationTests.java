@@ -82,6 +82,11 @@ class CdBlogApplicationTests {
 
 
         List<Article> homeArticleList = articleDao.getHomeArticles();
+        Random random = new Random();
+        int sum = random.ints(10).sum();
+        homeArticleList.stream().mapToInt(Article::getId).sum();
+
+
         //转换vo对象
         List<ArticleVO> articleVOList = BeanUtils.copyList(homeArticleList, ArticleVO.class);
         // 从articleList拿到 articleIdList

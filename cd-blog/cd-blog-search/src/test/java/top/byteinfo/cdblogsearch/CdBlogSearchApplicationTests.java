@@ -1,14 +1,8 @@
 package top.byteinfo.cdblogsearch;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.FactoryBean;
 import org.springframework.boot.test.context.SpringBootTest;
-import top.byteinfo.cdblogsearch.mbg.admin.entity.Admin;
-import top.byteinfo.cdblogsearch.mbg.admin.mapper.AdminMapper;
-import top.byteinfo.cdblogsearch.mbg.user.entity.User;
-import top.byteinfo.cdblogsearch.mbg.user.mapper.UserMapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,22 +13,12 @@ class CdBlogSearchApplicationTests {
     //    @Autowired
 //    UserRepository userRepository;
 
+FactoryBean factoryBean;
 
-    @Autowired
-    UserMapper userMapper;
-    @Autowired
-    AdminMapper adminMapper;
 
     @Test
     void contextLoads() {
-        System.out.println();
-        List<User> userList = userMapper.selectAll();
-        LambdaQueryWrapper<User> select = Wrappers.lambdaQuery(User.class).last("limit 5");
-        List<User> users = userMapper.selectList(select);
 
-        System.out.println();
-        List<Admin> admins = adminMapper.selectAll();
-        System.out.println();
     }
 
 
