@@ -24,7 +24,7 @@
         <profile>
             <id>amqp</id>
             <activation>
-                <!--                <activeByDefault>true</activeByDefault>-->
+                                <activeByDefault>true</activeByDefault>
             </activation>
             <dependencies>
                 <dependency>
@@ -42,7 +42,7 @@
         <profile>
             <id>kafka</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+<!--                <activeByDefault>true</activeByDefault>-->
             </activation>
             <dependencies>
                 <dependency>

@@ -1,3 +1,14 @@
 spring:
   profiles:
     active: amqp
+  rabbitmq:
+    host: 192.168.1.11
+    port: 5672
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 3 #最大重试次数
+          initial-interval: 3000 #重试间隔时间（单位毫秒）
+#  kafka:
+#    bootstrap-servers: 192.168.1.11:9092
