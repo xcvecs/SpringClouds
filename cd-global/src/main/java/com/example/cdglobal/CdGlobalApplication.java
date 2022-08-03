@@ -10,4 +10,8 @@ public class CdGlobalApplication {
         SpringApplication.run(CdGlobalApplication.class, args);
     }
 
+    public static void mains(String[] args) {
+        System.out.println();
+    }
+
 }
