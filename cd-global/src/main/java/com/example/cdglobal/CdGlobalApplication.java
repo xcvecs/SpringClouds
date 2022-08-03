@@ -15,4 +15,7 @@ public class CdGlobalApplication {
         System.out.println();
     }
 
+    public void test(){
+        System.out.println();
+    }
 }
