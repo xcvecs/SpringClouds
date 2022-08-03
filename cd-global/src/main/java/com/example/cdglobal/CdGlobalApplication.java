@@ -11,4 +11,8 @@ public class CdGlobalApplication {
         System.out.println();
     }
 
+    public static void mains(String[] args) {
+        System.out.println();
+    }
+
 }
