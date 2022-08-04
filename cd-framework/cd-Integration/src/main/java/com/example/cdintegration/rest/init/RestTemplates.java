@@ -4,6 +4,7 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.client.OkHttp3ClientHttpRequestFactory;
+import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -52,7 +53,6 @@ public class RestTemplates {
 
     String responseHeader = response.getHeaders().getFirst("MyResponseHeader");
     String body = response.getBody();
-
 
 
 
